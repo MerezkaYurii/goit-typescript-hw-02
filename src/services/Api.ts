@@ -1,13 +1,16 @@
 const ACCESS_KEY = 'uNR6ijCGWzdLJgD6hLjt2AfNvMcHFYYu6JRV1O2acUQ';
 
 import axios from 'axios';
-import { ResponsePage } from '../components/App/App.types';
+import { ItemPage, ResponsePage } from '../components/App/App.types';
 
-export const fetchPictures = async (query: string, page: number) => {
+export const fetchPictures = async (
+  query: string,
+  page: number
+): Promise<ItemPage[]> => {
   if (!query.trim()) {
     return [];
   }
-  const response: ResponsePage = await axios.get(
+  const response = await axios.get<ResponsePage>(
     'https://api.unsplash.com/search/photos',
     {
       params: {

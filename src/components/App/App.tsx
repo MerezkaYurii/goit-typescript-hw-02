@@ -8,7 +8,7 @@ import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
-import { ItemPage, ResponsePage } from './App.types';
+import { ItemPage } from './App.types';
 
 function App() {
   const [pictures, setPictures] = useState<ItemPage[]>([]);
@@ -35,13 +35,13 @@ function App() {
       try {
         setIsError(false);
         setIsLoading(true);
-        const data: unknown[] = await fetchPictures(query, page);
+        const data = await fetchPictures(query, page);
 
         if (data.length === 0) {
           toast.error('No images found');
         }
 
-        setPictures((prev: any[]) => [...prev, ...data]);
+        setPictures(prev => [...prev, ...data]);
       } catch {
         setIsError(true);
         toast.error('Error! please try again later');
