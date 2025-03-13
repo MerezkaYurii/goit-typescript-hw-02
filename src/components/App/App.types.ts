@@ -1,9 +1,7 @@
 export interface ResponsePage {
-  data: {
-    results: ItemPage[];
-    total: number;
-    total_pages: number;
-  };
+  results: ItemPage[];
+  total: number;
+  total_pages: number;
 }
 
 export interface ItemPage {

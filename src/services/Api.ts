@@ -10,17 +10,23 @@ export const fetchPictures = async (
   if (!query.trim()) {
     return [];
   }
-  const response = await axios.get<ResponsePage>(
-    'https://api.unsplash.com/search/photos',
-    {
-      params: {
-        client_id: ACCESS_KEY,
-        query: query,
-        page: page,
-        per_page: 14,
-      },
-    }
-  );
 
-  return response.data.results;
+  try {
+    const response = await axios.get<ResponsePage>(
+      'https://api.unsplash.com/search/photos',
+      {
+        params: {
+          client_id: ACCESS_KEY,
+          query: query,
+          page: page,
+          per_page: 14,
+        },
+      }
+    );
+
+    return response.data.results;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 };
