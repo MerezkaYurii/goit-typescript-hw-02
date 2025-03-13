@@ -8,10 +8,10 @@ import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
-import { ResponsePage } from './App.types';
+import { ItemPage, ResponsePage } from './App.types';
 
 function App() {
-  const [pictures, setPictures] = useState<ResponsePage[]>([]);
+  const [pictures, setPictures] = useState<ItemPage[]>([]);
   const [query, setQuery] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);

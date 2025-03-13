@@ -35,8 +35,8 @@ const SearchBar = ({ onSubmit }: PropsSearchBar) => {
           }}
           value={value}
           type="text"
-          autocomplete="off"
-          autofocus
+          autoComplete="off"
+          autoFocus
           placeholder="Search images and photos"
         />
       </form>
