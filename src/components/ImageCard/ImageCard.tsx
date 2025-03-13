@@ -1,6 +1,12 @@
+import { ItemPage } from '../App/App.types';
 import s from './ImageCard.module.css';
 
-export const ImageCard = ({ item, onImageClick }) => {
+interface ImageCardProps {
+  item: ItemPage;
+  onImageClick: (imageUrl: string) => void;
+}
+
+export const ImageCard = ({ item, onImageClick }: ImageCardProps) => {
   return (
     <div className={s.wrapper}>
       <li className={s.item}>

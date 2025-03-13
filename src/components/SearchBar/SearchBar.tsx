@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import s from './SearchBar.module.css';
 import toast from 'react-hot-toast';
-const SearchBar = ({ onSubmit }) => {
-  const [value, setValue] = useState('');
 
-  const handleSubmit = e => {
+type PropsSearchBar = {
+  onSubmit: (newQuery: string) => void;
+};
+
+const SearchBar = ({ onSubmit }: PropsSearchBar) => {
+  const [value, setValue] = useState<string>('');
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!value) {
       toast("I'm waiting for your request");
